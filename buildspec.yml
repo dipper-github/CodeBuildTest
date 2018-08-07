@@ -7,7 +7,7 @@ env:
 phases:
   build:
     commands:
-      - rspec HelloWorld_spec.rb
+    - echo
 artifacts:
   files:
     - '**/*'
