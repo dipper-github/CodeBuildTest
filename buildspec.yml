@@ -3,23 +3,12 @@ env:
   variables:
     MAJOR: 1
     MINOR: 0
-  build-version: artifact-${MAJOR}.${MINOR}
-
+  build-version: artifact-${MAJOR}.${MINOR}     
 phases:
-  install:
-    commands:
-      - echo Nothing to do in the install phase...
-  pre_build:
-    commands:
-      - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo Build started on `date`
-      - mvn install
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - rspec HelloWorld_spec.rb
 artifacts:
   files:
-    - target/messageUtil-1.0.jar
-  name: unique-$(date +%Y-%m-%d)
+    - '**/*'
+  name: ${CODEBUILD_BUILD_VERSION} 
